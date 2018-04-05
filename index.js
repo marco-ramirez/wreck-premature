@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const http = require('http');
-const url = require('url');
+const {parse} = require('url');
 const zlib = require('zlib');
 const Wreck = require('wreck');
 
@@ -10,7 +10,7 @@ const generatePayload = (size, gzip) => gzip ?
 
 const getUrl = () => new Promise(resolve => {
     const server = http.createServer((request, response) => {
-        let {query: {size, gzip}} = url.parse(request.url, true);
+        let {query: {size, gzip}} = parse(request.url, true);
         size = parseInt(size, 10);
         gzip = gzip === 'true';
         response.setHeader('Content-Encoding', gzip ? 'gzip' : 'identity');
@@ -41,6 +41,6 @@ const run = async () => {
     await request(url, 1e5, false);
     await request(url, 1e5, true);
     server.close();
-}
+};
 
 run().catch(e => console.error(e));

@@ -1,0 +1,23 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "env": {
+        "node": true,
+        "es6": true
+    },
+    "rules": {
+        "quotes": [2, "single", {"allowTemplateLiterals": true}],
+        "no-unused-vars": 2,
+        "no-undef": 2,
+        "semi": [2, "always"],
+        "arrow-parens": [2, "as-needed"],
+        "no-trailing-spaces": 2,
+        "no-shadow": 2,
+        "comma-dangle": [2, "never"],
+        "no-const-assign": 2
+    }
+}
